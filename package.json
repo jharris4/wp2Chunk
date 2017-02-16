@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Checking webpack 2 chunking",
   "main": "index.js",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
   "scripts": {
     "clean": "rimraf public",
     "build": "npm run clean && webpack",
