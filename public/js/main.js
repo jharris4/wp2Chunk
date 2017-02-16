@@ -19,12 +19,7 @@
 /******/ 		if(parentJsonpFunction) parentJsonpFunction(chunkIds, moreModules, executeModules);
 /******/ 		while(resolves.length)
 /******/ 			resolves.shift()();
-/******/ 		if(executeModules) {
-/******/ 			for(i=0; i < executeModules.length; i++) {
-/******/ 				result = __webpack_require__(__webpack_require__.s = executeModules[i]);
-/******/ 			}
-/******/ 		}
-/******/ 		return result;
+
 /******/ 	};
 
 /******/ 	// The module cache
@@ -32,8 +27,7 @@
 
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		1: 0,
-/******/ 		2: 0
+/******/ 		1: 0
 /******/ 	};
 
 /******/ 	// The require function
@@ -81,7 +75,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + chunkId + ".js";
+/******/ 		script.src = __webpack_require__.p + "" + ({"0":"another"}[chunkId]||chunkId) + ".js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -152,12 +146,11 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-function add(a,b){
-    return a+b;
+function add(a, b) {
+    return a + b;
 }
 
-/* harmony default export */ __webpack_exports__["default"] = add;
+/* harmony default export */ __webpack_exports__["a"] = add;
 
 /***/ }),
 /* 2 */
@@ -170,17 +163,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //import subtract from './scripts/subtract';
 
 
-document.querySelector('.add').addEventListener('click',()=>{
-    console.log(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__scripts_add__["default"])(3,4));
+document.querySelector('.add').addEventListener('click', () => {
+    console.log(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__scripts_add__["a" /* default */])(3, 4));
 });
 
-document.querySelector('.subtract').addEventListener('click',()=>{
+document.querySelector('.subtract').addEventListener('click', () => {
     //console.log(subtract(6,5));
-    Promise.resolve().then(((require)=>{
+    __webpack_require__.e/* require.ensure */(0).then((require => {
         const subtract = __webpack_require__(0).default;
-        console.log(subtract(6,5));
+        console.log(subtract(6, 5));
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
-})
+});
 
 /***/ })
 /******/ ]);
